@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: windows-latest
+  vmImage: windowspool
 
 steps:
 - script: echo Despliegue test 1!
