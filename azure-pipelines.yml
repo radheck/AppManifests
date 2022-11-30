@@ -6,8 +6,8 @@
 trigger:
 - main
 pool:
-  name: windowspool
-  #vmImage: windows-latest
+  #name: windowspool
+  vmImage: windows-latest
 steps:
 - script: echo Despliegue test 1!
   displayName: 'intento 1'
