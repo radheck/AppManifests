@@ -2582,7 +2582,7 @@ $fpath = Split-Path -Path $path4
 
     $IntuneWinFile = Get-ChildItem -Path  $path | Where-Object Name -Like "*.intunewin"
     $IntuneWinFile.Name
-    $intunewincreated = $path + "\" + $intunewinfile.Name
+    $intunewincreated = $path + $intunewinfile.Name
     # Create custom display name like 'Name' and 'Version'
     write-host "Creating Custom Display Name"
     $DisplayName = $name
@@ -2610,7 +2610,7 @@ $ReturnCodes = Get-DefaultReturnCodes
     Invoke-UploadWin32Lob -SourceFile "$intunewincreated" -DisplayName "$DisplayName" -publisher "$publisher" `
 -description "$description" -detectionRules $DetectionRule -returnCodes $ReturnCodes `
 -installCmdLine "$installcommandline" `
--uninstallCmdLine "$uninstallcommandline" -vervose
+-uninstallCmdLine "$uninstallcommandline" 
 
 
     ##Assignments
