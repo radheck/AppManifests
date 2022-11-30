@@ -1,6 +1,6 @@
 # Automatically updated by the winget bot at 2021/May/28
 # yaml-language-server: $schema=https://aka.ms/winget-manifest.singleton.1.0.0.schema.json
-PackageIdentifier: Foxit.FoxitReader
+PackageIdentifier: Foxit.FoxitReader2
 Publisher: Foxit
 PackageName: FoxitReader
 PackageVersion: 11.0.0.49893
