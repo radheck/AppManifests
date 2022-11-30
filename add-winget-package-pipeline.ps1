@@ -2605,10 +2605,12 @@ $ReturnCodes = Get-DefaultReturnCodes
     $UninstallCommandLine = $uninstallcommand
     $ImageFile = $icondownload
     #$Icon = New-IntuneWin32AppIcon -FilePath $ImageFile
+    write-host "INTUNE source FILE:"
+    write-host $intunewincreated
     Invoke-UploadWin32Lob -SourceFile "$intunewincreated" -DisplayName "$DisplayName" -publisher "$publisher" `
 -description "$description" -detectionRules $DetectionRule -returnCodes $ReturnCodes `
 -installCmdLine "$installcommandline" `
--uninstallCmdLine "$uninstallcommandline"
+-uninstallCmdLine "$uninstallcommandline" -vervose
 
 
     ##Assignments
