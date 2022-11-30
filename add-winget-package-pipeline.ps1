@@ -2437,7 +2437,14 @@ write-host "Tenant ID is $tenantid"
 ##Grab GitHub Commits
 write-host "Finding Latest YAML Commit from Repo $reponame in $ownername GitHub"
 $uri = "https://api.github.com/repos/$ownername/$reponame/commits"
-$events = (Invoke-RestMethod -Uri $uri -Method Get -Headers @{'Authorization: Bearer '+$token; 'Accept: application/vnd.github+json'}).commit
+
+$headers = @{
+    'Authorization' = 'bearer '+$token
+    'Accept' = 'application/vnd.github+json'
+}
+
+
+$events = (Invoke-RestMethod -Uri $uri -Method Get -Headers $headers).commit
 
 ##Loop through until we hit a YAML file
 ##We don't want to grab anything else in the repo
