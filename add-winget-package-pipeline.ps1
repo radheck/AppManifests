@@ -2473,11 +2473,7 @@ write-host "Output to $templatefilepath"
 ######                                          Download YAML                                            ######
 ###############################################################################################################
 write-host "Downloading YAML"
-Invoke-WebRequest `
-   -Uri $commitfilename `
-   -OutFile $templateFilePath `
-   -UseBasicParsing `
-   -Headers @{"Cache-Control"="no-cache"}
+Invoke-WebRequest -Uri $commitfilename -OutFile $templateFilePath -UseBasicParsing -Headers @{'Cache-Control'='no-cache'}
 write-host "Investigating YAML"
 [string[]]$fileContent = Get-Content $templateFilePath
 $content = ''
