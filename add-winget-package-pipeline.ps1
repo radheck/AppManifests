@@ -2453,7 +2453,7 @@ foreach ($event in $events) {
 $eventsuri = $event.url
 $commitid = Split-Path $eventsuri -Leaf
 $commituri = "https://api.github.com/repos/$ownername/$reponame/commits/$commitid"
-$commitfilename2 = ((Invoke-RestMethod -Uri $commituri -Method Get -Headers @{'Authorization'='Bearer '+$token; 'Accept'='application/json'}).Files).raw_url
+$commitfilename2 = ((Invoke-RestMethod -Uri $commituri -Method Get -Headers $headers).Files).raw_url
 $commitfileext = split-path $commitfilename2 -Leaf
 $commitext = [System.IO.Path]::GetExtension($commitfileext)
 write-host $commitext
