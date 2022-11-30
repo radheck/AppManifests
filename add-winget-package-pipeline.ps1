@@ -2439,7 +2439,7 @@ write-host "Finding Latest YAML Commit from Repo $reponame in $ownername GitHub"
 $uri = "https://api.github.com/repos/$ownername/$reponame/commits"
 
 $headers = @{
-    'Authorization' = 'bearer '+$token
+    'Authorization' = 'Bearer '+$token
     'Accept' = 'application/vnd.github+json'
 }
 
@@ -2453,7 +2453,7 @@ foreach ($event in $events) {
 $eventsuri = $event.url
 $commitid = Split-Path $eventsuri -Leaf
 $commituri = "https://api.github.com/repos/$ownername/$reponame/commits/$commitid"
-$commitfilename2 = ((Invoke-RestMethod -Uri $commituri -Method Get -Headers @{'Authorization'='token '+$token; 'Accept'='application/json'}).Files).raw_url
+$commitfilename2 = ((Invoke-RestMethod -Uri $commituri -Method Get -Headers @{'Authorization'='Bearer '+$token; 'Accept'='application/json'}).Files).raw_url
 $commitfileext = split-path $commitfilename2 -Leaf
 $commitext = [System.IO.Path]::GetExtension($commitfileext)
 write-host $commitext
